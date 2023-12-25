@@ -11,7 +11,9 @@ const { NotImplementedError } = require('../extensions/index.js');
  *
  */
 function encodeLine(/* str */) {
-  throw new NotImplementedError('Not implemented');
+/*   return [...new Set(str)].map((element) => str.split('').filter((item) => item === element).length + element).join('').replaceAll('1', '');
+ */
+throw new NotImplementedError('Not implemented');
   // remove line with error and write your code here
 }
 
