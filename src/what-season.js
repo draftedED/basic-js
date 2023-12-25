@@ -11,19 +11,21 @@ const { NotImplementedError } = require('../extensions/index.js');
  * getSeason(new Date(2020, 02, 31)) => 'spring'
  * 
  */
-function getSeason(/* date */) {
-  throw new NotImplementedError('Not implemented');
-  // remove line with error and write your code here
-  /* if (!(date instanceof Date)) throw new Error (`Invalid date!`);
-  if (!date) return `Invalid date!`;
-  if (Object.getOwnPropertyNames(date).length !== 0) {
-    throw new Error('Invalid date!');
-  } 
-  const getMonth = date.getMonth();
-  if (getMonth >= 8 && getMonth <= 10) return `autumn`;
-  if (getMonth >= 11 && getMonth <= 1) return `winter`;
-  if (getMonth >= 2 && getMonth <= 4) return `spring`;
-  return `summer`; */
+function getSeason(date) {
+   if (!date) return `Unable to determine the time of year!`;
+   
+   if (!(date instanceof Date)) throw new Error (`Invalid date!`);
+
+   if (Object.getOwnPropertyNames(date).length !== 0) {
+     throw new Error('Invalid date!');
+   } 
+
+   const getMonth = date.getMonth() + 1;
+
+   if (getMonth === 9 || getMonth === 10 || getMonth === 11) return `autumn`;
+   if (getMonth === 12 || getMonth === 1 || getMonth === 2) return `winter`;
+   if (getMonth === 3 || getMonth === 4 || getMonth === 5) return `spring`;
+   return `summer`;
 }
 
 module.exports = {
